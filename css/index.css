@@ -192,11 +192,11 @@ html,body,.main{
     transform-style: preserve-3d;
     background: url("../img/bg1_icon1.png") no-repeat;
     background-size: cover;
-    width:1.7rem;
-    height: 0.74rem;
     position: absolute;
-    left:6.41rem;
-    top:5.3rem;
+    width: 1.9rem;
+    height: 0.74rem;
+    left: 47.7%;
+    top: 21%;
 /*    transform-style:flat;*/
     -webkit-animation: myFlag 2s infinite linear;
     animation: myFlag 2s infinite linear;
@@ -445,8 +445,8 @@ html,body,.main{
 /*手指 点击开灯*/
 .slide4 img:nth-of-type(2){
     position: absolute;
-    right: 4.0rem;
-    bottom: 5.5rem;
+    right: 30%;
+    bottom: 25%;
     width: 1.22rem;
     height: 1.6rem;
 }
@@ -471,15 +471,15 @@ html,body,.main{
 }
 .slide4 img:nth-of-type(3){
     position: absolute;
-    left: 9.5rem;
-    top: 13.6rem;
+    left: 75%;
+    top: 55%;
     width: 0.6rem;
     height: 4.0rem;
 }
 .slide4 img:nth-of-type(4){
     position: absolute;
-    left: 8.5rem;
-    top: 2.6rem;
+    left: 63%;
+    top: 12%;
     height: 7.86rem;
 }
 .slide5{
