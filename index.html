@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>移动端简历</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script>
+        /*  ~function (deW) {
+         var winW = document.documentElement.clientWidth;
+         document.documentElement.style.fontSize = 100 / deW * winW + 'px';
+         }(640)
+         */
+        var desW = 1335;
+        var winW = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = winW / desW * 100 + "px";
+    </script>
+</head>
+<body>
+<section class="main">
+    <section>
+
+    </section>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <div class="cloud1"></div>
+                <div class="cloud2"></div>
+                <div class="cloud3"></div>
+                <div class="title">
+                    个人简历
+                </div>
+                <div class="open-con">
+                    <a href="javascript:;" id="open">点击开启</a>
+                </div>
+            </div>
+            <div id="con" class="swiper-slide slide2">
+                <div class="plane"></div>
+                <div class="basic-intro">
+                    <ul>
+                        <li>基本信息</li>
+                        <li>姓名：张志强</li>
+                        <li>性别：男</li>
+                        <li>学历：本科</li>
+                    </ul>
+                </div>
+                <div class="flag"></div>
+                <img src="img/bg1_icon2.png" alt="">
+                <img src="img/bg1_icon3.png" alt="">
+                <img src="img/bg1_icon4.png" alt="">
+            </div>
+            <div class="swiper-slide slide3">
+                <div class="skill-bg">
+                    <img src="img/skill-bg-1.png">
+                    <img src="img/skill-bg-2.png">
+                    <img src="img/skill-bg-3.png">
+                    <img src="img/skill-bg-4.png">
+                    <img src="img/skill-bg-5.png">
+                </div>
+                <div class="pen">
+                    <img src="img/bg2_icon1.png" alt="">
+                    <img src="img/bg2_icon3.gif" alt="">
+                </div>
+                <img src="img/bg2_icon2.png" alt="">
+            </div>
+            <div class="swiper-slide slide4" onclick="bg()">
+                <img src="img/bg3_icon1.png" alt="">
+                <img  src="img/hand.png" alt="">
+                <img  src="img/bg3_icon2.png" alt="">
+                <img class="study" src="img/bg3_icon3.png" alt="">
+            </div>
+            <div class="swiper-slide slide5">
+                <img src="img/car.png" alt="">
+            </div>
+            <div class="swiper-slide slide6">
+                <div class="thanks">谢谢观看</div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/swiper.min.js"></script>
+<script src="js/zepto.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        loop: true,
+        effect: 'coverflow',
+        keyboardControl: true,
+        onTransitionEnd: function (swiper) {
+            var curIndex = swiper.activeIndex,
+                    slides = swiper.slides;
+            [].forEach.call(slides, function (item, index) {
+                item.id = '';
+                if (curIndex == index) {
+                    switch (index) {
+                        case 0 :
+                            item.id = 'page' + slides.length - 2;
+                            break;
+                        case slides.length - 1 :
+                            item.id = 'page1';
+                            break;
+                        default :
+                            item.id = 'page' + index;
+                            break;
+
+                    }
+                }
+            });
+            // 旋转旗子
+            if (curIndex == 2) {
+                var page2 = document.getElementById('page2');
+                page2.style.transformStyle = 'flat';
+            } else if (curIndex == 5) {
+                var page5 = document.getElementById('page5');
+                var oImg = page5.getElementsByTagName('img')[0];
+                oImg.onclick = function () {
+                    setInterval(autoMove, 10)
+                };
+                var n = 0;
+                function autoMove() {
+                    n = n + 0.01;
+                    if (n < 1) {
+                        oImg.style.left = -n + 2.1 + 'rem';
+                        oImg.style.top = n * .95 + 14.79 + 'rem';
+                    }
+                }
+            }
+           
+        }
+
+    });
+    document.getElementById('open').onclick = function () {
+        swiper.slideNext();
+    };
+    var flag =true;
+    $('.slide4 .study').hide();
+    function bg() {
+        flag=!flag;
+        if(flag){
+            $(".slide4").css("background-image","url(img/bg3.jpg)");
+            $('.slide4 img').show();
+        }else{
+            $(".slide4").css("background-image","url(img/bg3-2.jpg)");
+            $('.slide4 img').hide();
+            $('.slide4 .study').show();
+        }
+
+    }
+
+</script>
+</body>
+</html>
